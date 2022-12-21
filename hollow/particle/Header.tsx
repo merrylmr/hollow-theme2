@@ -14,60 +14,21 @@ export default function Header(props: { name: string, active: string }) {
         }
     ))
 
-    let thin = true
-    return <div
-    >
-        {/* copy from https://devdojo.com/tails/v1/app#_ */}
-        <section className="w-full
-        dark:bg-gray-900 bg-white
-        border-b border-gray-200 dark:border-gray-800">
-            <div
-                className="
-                container flex flex-col flex-wrap items-center
-                justify-center
-                mx-auto md:flex-row max-w-6xl px-5 py-1">
-                <div className="relative flex flex-col md:flex-row max-w-full">
-                    <div className="flex items-center justify-center
-                     pt-2 pb-1 md:pb-2 md:my-0
-                    ">
-                        <Link href="/"
-                              className="flex font-medium ">
-                            <span
-                              className={`text-xl ${thin ? 'font-extralight' : 'font-black'} leading-none text-gray-900 dark:text-gray-100 select-none`}>
-                                {props.name}
-                            </span>
-                        </Link>
-                        <div id="react-dom-search" className="ml-3 mt-2">
-                            <Search></Search>
-                        </div>
-                    </div>
 
-                    <div className="md:py-3">
-                        <div className="md:pl-4 md:ml-4 md:border-l md:border-gray-200 md:dark:border-gray-700 h-full"></div>
-                    </div>
-                    <nav
-                      className={`flex space-x-2 overflow-x-auto items-center text-lg
-                        tracking-wide
-                        md:border-gray-200
-                        ${thin ? 'font-extralight' : 'font-medium'}`}>
-                        {
-                            menus.map(i => (
-                                <Link
-                                    href={i.href}
-                                    className={`p-2 transition duration-150
-                                        ${i.active? "hover:dark:text-gray-200 hover:text-gray-800 text-black dark:text-white": "text-gray-500 dark:text-gray-500"}
-                                `}>{i.name}</Link>
-                            ))
-                        }
-                    </nav>
-                </div>
-
-                {/*<div id="react-dom-search"*/}
-                {/*     className={"ml-3 flex items-center hidden"}>*/}
-                {/*    /!* 可以引入 React 代码，实现公用 *!/*/}
-                {/*    <Search></Search>*/}
-                {/*</div>*/}
+    // @ts-ignore
+    return <div>
+        <section className="flex items-center justify-between px-8 h-12">
+            <div className={'flex items-center'}>
+                <img
+                    src="https://wangyurui.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F04f9e46d-1bb0-4165-814a-03fbb42cdea6%2Fbear_(7).png?table=block&id=faeaabbf-0139-4a33-bfa5-638a9a37f74a&spaceId=eb38b2f9-5e9b-416a-8c56-fec2190548d3&width=40&userId=&cache=v2"
+                    alt=""/>
+                Merry
+            </div>
+            <div className={'flex items-center'}>
+                <Search></Search>
+                search
             </div>
         </section>
+
     </div>
 }

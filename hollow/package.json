@@ -19,5 +19,7 @@
   "devDependencies": {
     "@types/react": "^18.0.21"
   },
-  "browserslist": [">0.01%"]
+  "browserslist": [
+    ">0.01%"
+  ]
 }

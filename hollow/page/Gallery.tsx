@@ -30,7 +30,6 @@ let gallery: Gallery = params?.gallery || defaultGallery
 
 export default function Gallery() {
     return <div className="container mx-auto max-w-2xl py-6 px-5 md:py-12">
-        <h3 className="text-3xl xl:text-5xl font-bold dark:text-white text-center">{gallery.title}</h3>
 
         <div
             id="gallery-box"

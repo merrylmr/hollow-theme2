@@ -1,5 +1,6 @@
 import Header from "../particle/Header";
 import Footer, {Link} from "../particle/Footer";
+import Nav from "../particle/Nav"
 
 interface Props {
     title: string
@@ -39,7 +40,10 @@ function FontFamilyStyle({link, family, selector}) {
     </>
 }
 
+
+
 export default function Index(props: Props) {
+    console.log('props：',props)
     let routerBase = params?.base || ''
 
     return <html lang="zh">
@@ -64,12 +68,33 @@ export default function Index(props: Props) {
     dark:text-white
     min-h-screen language-plain flex flex-col">
     <Header name={props.logo} active={props.activeHeader}></Header>
-    <div className="flex-1">
-        {
-            props.children
-        }
 
+
+    <div style={{height: '30vh'}}>
+        <img
+            className={'object-cover'}
+            style={{height: '30vh', width: '100%', 'object-position': `center 66.42%`}}
+            src={props.cover} alt=""/>
     </div>
+    <div className={'w-10/12 mx-auto -mt-20'}>
+        <img
+            className={'w-36'}
+            src={props.icon} alt=""/>
+        <div className={'text-4xl font-bold'}>
+            {props.title}
+        </div>
+    </div>
+
+    <div className='w-10/12 mx-auto flex'>
+        <Nav/>
+        <div className="flex-1">
+            {
+                props.children
+            }
+
+        </div>
+    </div>
+
 
     <Footer name={props.logo} stack={props.stack} footer_links={props.footer_links}></Footer>
     <div>
