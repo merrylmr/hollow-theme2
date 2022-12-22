@@ -25,24 +25,24 @@ let global = {
 
 const pageConfig={
     home:{
-        cover: 'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/932dc18a-537a-443a-8e78-71b9218c33c0/kFuIOzX.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221221%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221221T055528Z&X-Amz-Expires=86400&X-Amz-Signature=7fabc51bf88a8ec2794ce837c2fca73c3c38e2ac461c38ea226bd77e2062e8ff&X-Amz-SignedHeaders=host&x-id=GetObject',
+        cover: 'https://f.cdn-static.cn/12518_16716899425782.png',
         title: 'Merry日常分享',
-        icon: 'https://wangyurui.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F04f9e46d-1bb0-4165-814a-03fbb42cdea6%2Fbear_(7).png?table=block&id=faeaabbf-0139-4a33-bfa5-638a9a37f74a&spaceId=eb38b2f9-5e9b-416a-8c56-fec2190548d3&width=250&userId=&cache=v2'
+        icon: 'https://cdn.pixabay.com/animation/2022/12/05/15/23/15-23-06-837_512.gif'
     },
     link:{
         cover: 'https://cdn.pixabay.com/photo/2022/10/28/11/14/leaves-7552915_960_720.png',
         title: '友情链接',
-        icon: 'https://wangyurui.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F04f9e46d-1bb0-4165-814a-03fbb42cdea6%2Fbear_(7).png?table=block&id=faeaabbf-0139-4a33-bfa5-638a9a37f74a&spaceId=eb38b2f9-5e9b-416a-8c56-fec2190548d3&width=250&userId=&cache=v2'
+        icon: 'https://cdn.pixabay.com/photo/2022/02/20/09/43/animal-7024108_960_720.png'
     },
     tag:{
         cover: 'https://cdn.pixabay.com/photo/2022/06/14/15/26/background-7262229_960_720.jpg',
         title: 'tag',
-        icon: 'https://wangyurui.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F04f9e46d-1bb0-4165-814a-03fbb42cdea6%2Fbear_(7).png?table=block&id=faeaabbf-0139-4a33-bfa5-638a9a37f74a&spaceId=eb38b2f9-5e9b-416a-8c56-fec2190548d3&width=250&userId=&cache=v2'
+        icon: 'https://cdn.pixabay.com/photo/2022/02/20/09/43/animal-7024108_960_720.png'
     },
     about:{
         cover: 'https://cdn.pixabay.com/photo/2022/09/05/14/37/fruits-7434339_960_720.jpg',
         title: '关于我',
-        icon: 'https://cdn.pixabay.com/photo/2022/11/08/14/42/monstera-7578722_960_720.png'
+        icon: 'https://cdn.pixabay.com/photo/2022/03/05/10/08/beauty-7048849_960_720.jpg'
     },
     gallery:{
         cover: 'https://cdn.pixabay.com/photo/2022/06/14/15/26/background-7262228_960_720.jpg',

@@ -57,9 +57,9 @@ export default function Index(props: Props) {
         <link href={routerBase + '/prism/prism.css'}
               rel="stylesheet"/>
         {
-            params?.fonts?.map((i => {
-                return <FontFamilyStyle {...i}></FontFamilyStyle>
-            }))
+            // params?.fonts?.map((i => {
+            //     return <FontFamilyStyle {...i}></FontFamilyStyle>
+            // }))
         }
     </head>
     <body className="
@@ -85,9 +85,11 @@ export default function Index(props: Props) {
         </div>
     </div>
 
-    <div className='w-10/12 mx-auto flex'>
-        <Nav/>
-        <div className="flex-1">
+    <div className='w-10/12 mx-auto mt-16 grid  grid-cols-6 gap-4'>
+        <div className='md:col-span-1 col-span-6'>
+            <Nav/>
+        </div>
+        <div className="md:col-span-5 col-span-6">
             {
                 props.children
             }
