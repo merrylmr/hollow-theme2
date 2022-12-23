@@ -18,16 +18,15 @@ export default function Header(props: { name: string, active: string }) {
     // @ts-ignore
     return <div>
         <section className="flex items-center justify-between px-8 h-12">
-            <a href="/" className='flex items-center'>
+            <Link href="/" className='flex items-center'>
                 <img
                     className="w-8"
-                    src="https://cdn.pixabay.com/photo/2022/02/20/09/43/animal-7024108_960_720.png"
+                    src="https://cdn.pixabay.com/photo/2021/11/12/03/04/woman-6787784_960_720.png"
                     alt=""/>
                 Merry
-            </a>
+            </Link>
             <div className='flex items-center'>
                 <Search></Search>
-                search
             </div>
         </section>
 

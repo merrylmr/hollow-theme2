@@ -3,6 +3,8 @@ import Footer, {Link} from "../particle/Footer";
 import Nav from "../particle/Nav"
 
 interface Props {
+    icon?: String;
+    cover?: String;
     title: string
     page_data?: any
     logo: string
@@ -46,6 +48,24 @@ export default function Index(props: Props) {
     console.log('props：',props)
     let routerBase = params?.base || ''
 
+    let coverHtml,iconHtml
+    if(props.cover) {
+        coverHtml=    <img
+            className={'object-cover'}
+            style={{height: '30vh', width: '100%', 'object-position': `center 66.42%`}}
+            src={props.cover} alt=""/>
+    }
+    if(props.icon){
+        iconHtml= <div className={'w-10/12 mx-auto -mt-20'}>
+            <img
+                className={'w-36'}
+                src={props.icon} alt=""/>
+            <div className={'text-4xl font-bold'}>
+                {props.title}
+            </div>
+        </div>
+    }
+
     return <html lang="zh">
     <head>
         <meta charSet="UTF-8"/>
@@ -63,7 +83,7 @@ export default function Index(props: Props) {
         }
     </head>
     <body className="
-    bg-gray-50 dark:bg-black
+    dark:bg-black
     text-black
     dark:text-white
     min-h-screen language-plain flex flex-col">
@@ -71,19 +91,9 @@ export default function Index(props: Props) {
 
 
     <div style={{height: '30vh'}}>
-        <img
-            className={'object-cover'}
-            style={{height: '30vh', width: '100%', 'object-position': `center 66.42%`}}
-            src={props.cover} alt=""/>
+        {coverHtml}
     </div>
-    <div className={'w-10/12 mx-auto -mt-20'}>
-        <img
-            className={'w-36'}
-            src={props.icon} alt=""/>
-        <div className={'text-4xl font-bold'}>
-            {props.title}
-        </div>
-    </div>
+    {iconHtml}
 
     <div className='w-10/12 mx-auto mt-16 grid  grid-cols-6 gap-4'>
         <div className='md:col-span-1 col-span-6'>

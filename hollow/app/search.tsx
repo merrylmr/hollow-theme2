@@ -22,6 +22,7 @@ export default function Search() {
   return <>
     <button className="btn btn-ghost btn-xs btn-circle w-6 h-6 p-0"
             onClick={() => {
+              console.log('lalal')
               setShowSearch(true)
               setTimeout(() => {
                 inputRef?.current?.focus()
