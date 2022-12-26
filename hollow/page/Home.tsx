@@ -4,6 +4,7 @@ import Container from "../component/Container";
 import hollow, {getContents} from "@bysir/hollow"
 import {articleRoute, sortBlog} from "../util";
 import {defaultContents, defaultProjectList, defaultNews, defaultConfig} from "../initial_data";
+import Link from "../component/Link";
 
 let contents = getContents('contents',
     {
@@ -19,85 +20,100 @@ if (contents.length == 0) {
 
 let params = hollow.getConfig() || {};
 const projectList = params.projectList || defaultProjectList
-const news = params.news || defaultNews
+
+
+let tags = []
+contents.forEach(i => {
+    let items = i.meta?.tags;
+    if (items) {
+        tags = tags.concat(items)
+    }
+})
+tags = Array.from(new Set(tags))
 
 export default function Home() {
-    return <section>
+    return <section className={'pt-16'}>
 
         <div className='grid grid-cols-3 gap-10'>
             <div className={'col-span-2'}>
                 <div className={' flex items-center'}>
-                    <h3 className={'text-2xl flex items-center'}>
-                        Blog
+                    <h3 className={'text-base  text-pink-500 letterSpacing-wide'}>
+                        RECENTLY PUBLISHED
                     </h3>
                 </div>
-                <div className="blog">
+                <div className="blog mt-8">
                     {
 
                         contents.map(item => {
-                                let link = articleRoute(item)
-                                return <a className="blog-item py-2 flex justify-between items-center block"
-                                          href={link} target="_blank">
-                                    {item.name}
-                                    <span className={'text-xs opacity-60'}>{item.meta.date}</span>
-                                </a>
+                            let link = articleRoute(item)
+                            return <Link className="blog-item py-2  block group"
+                                      href={link} target="_blank">
+                                <h3 className={'text-xl font-bold group-hover:text-primary'}>  {item.name}</h3>
+                                <div className={'my-4 text-base line-clamp-3  leading-7'}>
+                                    {item.meta.desc}
+                                </div>
+                                <div className={'text-base font-bold flex items-center'}>
+                                    更多
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         strokeWidth={1.5} stroke="currentColor"
+                                         className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100">
+                                        <path strokeLinecap="round"
+                                              className="stroke-current group-hover:text-primary"
+                                              strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/>
+                                    </svg>
+                                </div>
+                            </Link>
                             }
                         )
                     }
                 </div>
 
-                <div className="mt-10">
-                    <div className={' flex items-center'}>
-                        <h3 className={'text-2xl flex items-center'}>
-                            Side Project
-
-
-                        </h3>
-                        <a className={'flex items-center'}>
-
-                        </a>
-                    </div>
-                    <div className="not-prose grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-2">
-                        {
-                            projectList.map(item =>
-                                <a href={item.url} target='_blank'
-                                   className="card card-compact hover:bg-base-200 transition-all duration-200 hover:-translate-y-1">
-                                    <figure className={'px-4 pt-4'}>
-                                        <img
-                                            className={'border-base-content bg-base-300 rounded-lg border border-opacity-5 h-40'}
-                                            src={item.cover} alt=""/>
-                                    </figure>
-                                    <div className="card-body">
-                                        <div className="card-title">{item.title}</div>
-                                        <div className={'text-xs opacity-60'}>{item.desc}</div>
-                                    </div>
-                                </a>
-                            )
-                        }
-
-
-                    </div>
-                </div>
             </div>
 
             <div>
-                <div className={' flex items-center   '}>
-                    <h3 className={'text-2xl flex items-center  p-1'}>
-                        最近阅读
+                <div>
+                    <h3 className={'text-base  text-pink-500 letterSpacing-wide'}>
+                        TOP CATEGORIES
                     </h3>
+                    <div className="flex flex-wrap space-x-3  mt-8 -mb-3">
+                        {
+                            tags.map(i => (
+                                <Link href={"/tags" + '/' + i} className={"tag mb-3 relative inline-block px-3 py-1  text-sm"}>
+                                    <div className="absolute -z-1 tag-bg opacity-30 transform  duration-200"></div>
+                                    {i}
+                                </Link>
+                            ))
+                        }
+                    </div>
                 </div>
-                <div className="border-t border-gray-300 mt-2">
-                    {
-                        news.map(item =>
-                            <a className=" py-2  block" href={item.url} target="_blank">
-                                {item.title}
-                            </a>
-                        )
-                    }
+
+                <div className="mt-10 sticky top-4">
+                    <div className={' flex items-center'}>
+                        <h3 className={'text-base  text-pink-500 letterSpacing-wide'}>
+                            SIDE PROJECT
+                        </h3>
+                    </div>
+                    <div className="mt-8">
+                        {
+                            projectList.map(item =>
+                                <a href={item.url} target='_blank'
+                                   className="group block flex items-center mb-4">
+                                    <div className="mr-2 transition-ml transform duration-200 group-hover:translate-x-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                             strokeWidth={1.5} stroke="currentColor"
+                                             className="w-6 h-6">
+                                            <path className="text-primary" strokeLinecap="round" strokeLinejoin="round"
+                                                  d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/>
+                                        </svg>
+                                    </div>
+                                    <div className="text-lg"> {item.title}</div>
+                                </a>
+                            )
+                        }
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div className="divider"></div>
     </section>
 }

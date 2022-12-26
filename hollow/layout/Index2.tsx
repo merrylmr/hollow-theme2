@@ -1,5 +1,6 @@
-import Header from "../particle/Header";
+import {NavComp} from "../particle/Header";
 import Footer, {Link} from "../particle/Footer";
+
 
 interface Props {
     icon?: String;
@@ -17,7 +18,7 @@ interface Props {
 import hollow from "@bysir/hollow"
 import {defaultConfig} from "../initial_data";
 
-let params = hollow.getConfig()|| defaultConfig;
+let params = hollow.getConfig() || defaultConfig;
 
 function FontFamilyStyle({link, family, selector}) {
     if (!family) {
@@ -42,10 +43,9 @@ function FontFamilyStyle({link, family, selector}) {
 }
 
 
-
 export default function Index(props: Props) {
-    console.log('props：',props)
     let routerBase = params?.base || ''
+
 
     return <html lang="zh">
     <head>
@@ -64,21 +64,21 @@ export default function Index(props: Props) {
         }
     </head>
     <body className="
-    bg-gray-50
     text-black
-    min-h-screen language-plain">
-    <div className="bg-white">
-        <Header name={props.logo} active={props.activeHeader}></Header>
-        <div className='max-w-screen-xl mx-auto'>
-            {
-                props.children
-            }
-        </div>
-        <Footer
-            name={props.logo} stack={props.stack}
-            footer_links={props.footer_links}>
-        </Footer>
+     bg-gray-50
+    min-h-screen language-plain flex flex-col">
+    <NavComp name={props.logo} active={props.activeHeader}
+    className="bg-gray-50">
+    </NavComp>
+
+
+    <div className='max-w-screen-xl mx-auto w-4/5'>
+        {
+            props.children
+        }
     </div>
+
+    <Footer name={props.logo} stack={props.stack} footer_links={props.footer_links}></Footer>
     <div>
         {props.time}
     </div>

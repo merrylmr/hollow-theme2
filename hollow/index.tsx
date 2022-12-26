@@ -1,9 +1,10 @@
 import Index from "./layout/Index"
+import Index2 from "./layout/Index2"
 
 import Home from "./page/Home";
 import BlogDetail from "./page/BlogDetail";
 import TagPage from "./page/TagPage";
-
+import List from "./page/List";
 import hollow, {getContents} from "@bysir/hollow"
 import MarkDown from "./page/Md";
 import {articleRoute} from "./util";
@@ -62,72 +63,82 @@ export default {
         {
             path: 'tags',
             component: () => {
-                return <Index {...global}
+                return <Index2 {...global}
                               {...pageConfig.tag}
                               activeHeader="Tags">
                     <TagPage></TagPage>
-                </Index>
+                </Index2>
             }
         },
         ...tags.map(tag => ({
             path: 'tags/' + tag,
             component: () => {
-                return <Index {...global}
+                return <Index2 {...global}
                               {...pageConfig.tag}
                               activeHeader="Tags">
                     <TagPage selectedTag={tag}></TagPage>
-                </Index>
+                </Index2>
             }
         })),
         {
             path: 'links',
             component: () => {
-                return <Index {...global}
+                return <Index2 {...global}
                               {...pageConfig.link}
                                activeHeader="Links">
                     <MarkDown filepath={params.links_page}></MarkDown>
-                </Index>
+                </Index2>
             }
         },
         {
             path: 'about',
             component: () => {
-                return <Index {...global}
+                return <Index2 {...global}
                               {...pageConfig.about}
                               activeHeader="About">
                     <MarkDown filepath={params.about_page}></MarkDown>
-                </Index>
+                </Index2>
             }
         },
         {
           path:'gallery',
             component: () => {
-                return <Index {...global}
+                return <Index2 {...global}
                               {...pageConfig.gallery}
                               title="照片与故事"
                               activeHeader="Gallery">
                     <Gallery></Gallery>
-                </Index>
+                </Index2>
             }
         },
         {
             path:'book',
             component: () => {
-                return <Index {...global}
+                return <Index2 {...global}
                               {...pageConfig.book}
                               activeHeader="book">
                     <Gallery></Gallery>
-                </Index>
+                </Index2>
             }
         },
         {
             path:'video',
             component: () => {
-                return <Index {...global}
+                return <Index2 {...global}
                               {...pageConfig.video}
                               activeHeader="video">
                     <Gallery></Gallery>
-                </Index>
+                </Index2>
+            }
+        },
+        {
+            path:'web-front',
+            component: () => {
+                return <Index2 {...global}
+                               {...pageConfig.video}
+                               activeHeader="video">
+                    <List></List>
+                </Index2>
             }
         },
         {

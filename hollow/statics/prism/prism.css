@@ -257,3 +257,96 @@ pre.diff-highlight > code .token.inserted:not(.prefix), pre > code.diff-highligh
 .token.treeview-part .entry-name.ext-pps:before, .token.treeview-part .entry-name.ext-ppt:before, .token.treeview-part .entry-name.ext-pptx:before {
     content: "\ea0b"
 }
+
+html {
+    --color-homepage-light: #bfdef2;
+    --color-homepage-dark: #c6e2f4;
+    --color-background: #ffffff;
+    --color-decorative: #63bce9;
+}
+
+.home-header {
+    background: linear-gradient(0deg, var(--color-homepage-dark), var(--color-homepage-light));
+    height: 200px;
+    position: relative;
+}
+
+@media (min-width: 769px) {
+    .home-header {
+        height: 400px;
+    }
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.wave {
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 90px;
+    transform: translateY(1px);
+    z-index: 3;
+
+}
+
+.wave svg {
+    position: absolute;
+    left: -3%;
+    right: -3%;
+    bottom: 0px;
+    width: 106%;
+    min-width: 600px;
+    max-width: unset;
+
+}
+
+.wave path {
+    fill: var(--color-background);
+    transition: fill 350ms ease 0s;
+}
+
+
+.person-3d {
+    position: absolute;
+    z-index: 5;
+    left: 70%;
+    top: 180px;
+}
+
+.person-3d img {
+    display: block;
+    top: 0px;
+    left: 0px;
+    height: 232px;
+    pointer-events: none;
+}
+
+
+.blog-item:not(:first-child) {
+    margin-top: 48px;
+}
+
+
+.tag-bg {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 8px;
+    background-color: var(--color-decorative);
+}
+
+.tag:hover  .tag-bg{
+    opacity: 0.5;
+    transform: scale(1.06);
+}
+
+

@@ -14,21 +14,11 @@ export const defaultContents: Content[] =
                 return "<p>这篇文章在你新增任意文章后就会消失。</p>"
             },
             meta: {
-                tags: ["demo", "hello"],
-                date: '2022-01-01'
-            },
-            content: "",
-            ext: "",
-            is_dir: false,
-        },
-        {
-            name: "elementUI及vuetifyjs动态换色实践",
-            getContent: () => {
-                return "<p>这篇文章在你新增任意文章后就会消失。</p>"
-            },
-            meta: {
-                tags: ["demo", "hello"],
-                date: '2022-01-01'
+                tags: ["demo", "hello","vue","threejs","css","react","javascript","ts"],
+                date: '2022-01-01',
+                desc:'对开发者：为了更快速的定位及解决bug，减少 JS Error 的错误量；\n' +
+                    '对用户体验：让用户更加流畅的使用我们的产品，减少用户反馈时间，让尽量少的用户遇到这样的场景就把问题修改掉，保证尽量多的用户可以正常使用；\n' +
+                    '对产品：不断发现产品的问题，提升产品质量。'
             },
             content: "",
             ext: "",

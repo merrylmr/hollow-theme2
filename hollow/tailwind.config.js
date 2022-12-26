@@ -13,8 +13,9 @@ module.exports = {
       gray: colors.neutral,
     },
     fontFamily: {
-      ...defaultTheme.fontFamily,
-    }
+      sans: ['Graphik', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+    },
   },
   variants: {},
   plugins: [
@@ -26,6 +27,6 @@ module.exports = {
     require("daisyui")
   ],
   daisyui:{
-    'themes':['wireframe', 'dark']
+    'themes':['light', 'dark']
   }
 }
