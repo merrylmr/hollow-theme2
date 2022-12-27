@@ -1,5 +1,5 @@
 import Link from "../component/Link";
-import Search from "../app/search";
+import SearchBtn from "../component/searchBtn";
 
 export function NavComp(props) {
     const menu = [
@@ -86,7 +86,7 @@ export function NavComp(props) {
                 </svg>
             </label>
             <div id="react-dom-search" className={'ml-4 flex'}>
-                <Search></Search>
+                <SearchBtn></SearchBtn>
             </div>
         </div>
     </div>

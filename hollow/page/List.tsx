@@ -11,7 +11,7 @@ let contents = getContents('contents',
     }
 ).list
 
-
+console.log('contents:',JSON.stringify(contents))
 if (contents.length == 0) {
     contents = defaultContents
 }
