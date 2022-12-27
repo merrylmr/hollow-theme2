@@ -1,38 +1,12 @@
 import Link from "../component/Link";
 import SearchBtn from "../component/searchBtn";
+import {defaultMenus} from "../initial_data";
+
 
 export function NavComp(props) {
-    const menu = [
-        {
-            name: '前端',
-            href: '/web-front/',
-            children: [
-                {
-                    name: 'Css',
-                    href: '/web-front/css/'
-                },
-                {
-                    name: 'Animation',
-                    href: '/web-front/animation/'
-                },
-
-            ],
-        },
-        {
-            name: '读书',
-            href: '/book'
-        },
-        {
-            name: '影视',
-            href: '/video/'
-        },
-        {
-            name: '关于',
-            href: '/about/'
-        },
-    ]
+    const menu = defaultMenus
     return <div
-        className={`max-w-screen-xl w-4/5  mx-auto  flex items-center justify-between  h-12 header ${props.className}`}>
+        className={`max-w-screen-xl w-4/5  mx-auto  flex items-center justify-between  h-16 header ${props.className}`}>
         <div className={'flex items-center'}>
             <Link
                 href="/"
@@ -86,7 +60,8 @@ export function NavComp(props) {
                 </svg>
             </label>
             <div id="react-dom-search" className={'ml-4 flex'}>
-                <SearchBtn></SearchBtn>
+                <SearchBtn
+                ></SearchBtn>
             </div>
         </div>
     </div>

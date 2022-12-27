@@ -8,7 +8,7 @@ import List from "./page/List";
 import hollow, {getContents} from "@bysir/hollow"
 import MarkDown from "./page/Md";
 import {articleRoute} from "./util";
-import {defaultConfig, defaultContents, defaultPageConfig} from "./initial_data";
+import {defaultConfig, defaultContents, defaultPageConfig, defaultMenus} from "./initial_data";
 import Gallery from "./page/Gallery";
 
 let contents = getContents('contents').list;
@@ -24,7 +24,7 @@ let global = {
     footer_links: params?.footer_links,
 }
 
- const pageConfig = params.pageConfig || defaultPageConfig
+const pageConfig = params.pageConfig || defaultPageConfig
 
 let tags = []
 contents.forEach(i => {
@@ -34,6 +34,8 @@ contents.forEach(i => {
 // @ts-ignore
 tags = Array.from(new Set(tags));
 
+console.log('...defaultMenus[0].children', JSON.stringify(defaultMenus[0].children))
+// noinspection TypeScriptValidateTypes
 export default {
     pages: [
         {
@@ -54,9 +56,9 @@ export default {
                     let content = b.getContent()
                     // 不能这样写，因为在 golang 中没有对应的 content 字段，不能赋值成功
                     // b.content = content
-                    return <Index {...global} activeHeader="Blog">
+                    return <Index2 {...global} activeHeader="Blog">
                         <BlogDetail {...b} content={content}></BlogDetail>
-                    </Index>
+                    </Index2>
                 }
             }
         }),
@@ -74,8 +76,8 @@ export default {
             path: 'tags/' + tag,
             component: () => {
                 return <Index2 {...global}
-                              {...pageConfig.tag}
-                              activeHeader="Tags">
+                               {...pageConfig.tag}
+                               activeHeader="Tags">
                     <TagPage selectedTag={tag}></TagPage>
                 </Index2>
             }
@@ -84,7 +86,7 @@ export default {
             path: 'links',
             component: () => {
                 return <Index2 {...global}
-                              {...pageConfig.link}
+                               {...pageConfig.link}
                                activeHeader="Links">
                     <MarkDown filepath={params.links_page}></MarkDown>
                 </Index2>
@@ -132,15 +134,25 @@ export default {
             }
         },
         {
-            path:'web-front',
+            path: '/web-front',
             component: () => {
-                return <Index2 {...global}
-                               {...pageConfig.video}
-                               activeHeader="video">
+                return <Index2 {...global}>
                     <List></List>
                 </Index2>
-            }
+            },
         },
+        ...defaultMenus[0].children.map(page => ({
+            path: page.href,
+            component: () => {
+                return <Index2 {...global}
+                >
+                    <List
+                        title={page.name}
+                        path={page.href}
+                    ></List>
+                </Index2>
+            }
+        })),
         {
             path: 'article.json',
             body: JSON.stringify(contents.map(i => ({

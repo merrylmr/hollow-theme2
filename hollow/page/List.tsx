@@ -17,10 +17,10 @@ if (contents.length == 0) {
 }
 
 
-export default function List() {
-return <div className="pt-32">
+export default function List(props) {
+return <div className="pt-32 max-w-screen-xl mx-auto w-4/5">
     <div className="flex items-center justify-between">
-        <h1 className="text-4xl font-bold">Animation</h1>
+        <h1 className="text-4xl font-bold">{props?.title||'Posts'}</h1>
         <span>63 Articles</span>
     </div>
 
@@ -49,6 +49,5 @@ return <div className="pt-32">
             })
         }
     </div>
-
 </div>
 }

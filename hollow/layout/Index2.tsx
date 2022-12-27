@@ -68,15 +68,12 @@ export default function Index(props: Props) {
      bg-gray-50
     min-h-screen language-plain flex flex-col">
     <NavComp name={props.logo} active={props.activeHeader}
-    className="bg-gray-50">
+    className="z-level">
     </NavComp>
 
-
-    <div className='max-w-screen-xl mx-auto w-4/5'>
-        {
-            props.children
-        }
-    </div>
+    {
+        props.children
+    }
 
     <Footer name={props.logo} stack={props.stack} footer_links={props.footer_links}></Footer>
     <div>

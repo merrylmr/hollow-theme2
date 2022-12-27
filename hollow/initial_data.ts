@@ -121,22 +121,39 @@ export const defaultProjectList: {
     }
 ]
 
+interface MenuItem {
+    name: string;
+    href: string;
+    children?: MenuItem[]
+}
 
-export const defaultNews: {
-    cover?: string,
-    url: string,
-    title: string
-}[] = [
+export const defaultMenus: MenuItem[] = [
     {
-        cover: '',
-        url: 'https://www.ruanyifeng.com/blog/2022/12/weekly-issue-235.html',
-        title: '  科技爱好者周刊（第 235 期）：青年失业率与选择创业'
+        name: 'Posts',
+        href: '/web-front/',
+        children: [
+            {
+                name: 'Css',
+                href: '/web-front/css/',
+            },
+            {
+                name: 'Animation',
+                href: '/web-front/animation/'
+            },
+
+        ],
     },
     {
-        cover: '',
-        url: 'https://www.ruanyifeng.com/blog/2022/12/weekly-issue-236.html',
-        title: ' 科技爱好者周刊（第 236 期）：中国的阳光地带'
+        name: '读书',
+        href: '/book'
+    },
+    {
+        name: '影视',
+        href: '/video/'
+    },
+    {
+        name: '关于',
+        href: '/about/'
     },
 ]
-
 

@@ -263,6 +263,7 @@ html {
     --color-homepage-dark: #c6e2f4;
     --color-background: #ffffff;
     --color-decorative: #63bce9;
+    --color-muted: #dfebf6;
 }
 
 .home-header {
@@ -281,6 +282,10 @@ html {
     position: sticky;
     top: 0;
     z-index: 2;
+}
+
+.header.z-level {
+    z-index: 11;
 }
 
 .wave {
@@ -350,3 +355,6 @@ html {
 }
 
 
+.bg-muted {
+    background-color: var(--color-muted);
+}

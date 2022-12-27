@@ -1,4 +1,5 @@
 import {Article} from "@bysir/hollow";
+import {startTransition} from "react";
 
 export function sortBlog(a: Article, b: Article) {
     if (a.meta?.featured || b.meta?.featured) {
@@ -33,3 +34,20 @@ export function dateFormat(date, fmt,) {
     }
     return fmt;
 }
+
+
+export function sortTag(arr: string[]) {
+    const countMap = new Map();
+    for (const elem of arr) {
+        if (countMap.has(elem)) {
+            countMap.set(elem, countMap.get(elem) + 1);
+        } else {
+            countMap.set(elem, 1);
+        }
+    }
+
+    const sorted = [...countMap.entries()].sort((a, b) => b[1] - a[1]);
+
+    return sorted
+}
+
