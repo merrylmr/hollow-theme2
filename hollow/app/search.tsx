@@ -8,6 +8,7 @@ export default function Search() {
     const [searchResult, setSearchResult] = useState<any[]>()
     const [showSearch, setShowSearch] = useState(false)
     const inputRef = useRef<HTMLInputElement>()
+    const modal = useRef<HTMLInputElement>()
 
     useEffect(() => {
         fetch('/article.json')
@@ -30,7 +31,7 @@ export default function Search() {
             }}
             enable={true}></SearchBtn>
 
-        <div>
+        <div ref={modal}>
             <div className={`modal ${showSearch ? 'modal-open' : ''} items-center`}>
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">搜索文章</h3>
@@ -68,7 +69,6 @@ export default function Search() {
                     </div>
                 </div>
             </div>
-
         </div>
     </>
 }
