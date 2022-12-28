@@ -264,6 +264,7 @@ html {
     --color-background: #ffffff;
     --color-decorative: #63bce9;
     --color-muted: #dfebf6;
+    --color-subtle-background: #eff1f5;
 }
 
 .home-header {
@@ -327,11 +328,14 @@ html {
 }
 
 .person-3d img {
+    opacity: 0;
     display: block;
     top: 0px;
     left: 0px;
     height: 232px;
     pointer-events: none;
+    animation: fade-in 0.6s 0.2s;
+    animation-fill-mode: forwards;
 }
 
 
@@ -349,7 +353,7 @@ html {
     background-color: var(--color-decorative);
 }
 
-.tag:hover  .tag-bg{
+.tag:hover .tag-bg {
     opacity: 0.5;
     transform: scale(1.06);
 }
@@ -357,4 +361,35 @@ html {
 
 .bg-muted {
     background-color: var(--color-muted);
+}
+
+.bg-subtle-background {
+    background-color: var(--color-subtle-background);
+}
+
+
+@keyframes text-focus-in {
+    0% {
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+
+.text-focus-in {
+    animation: text-focus-in 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

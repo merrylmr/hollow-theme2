@@ -10,9 +10,9 @@ export function sortBlog(a: Article, b: Article) {
 
 export function articleRoute(b?: Article) {
     if (!b) {
-        return '/blogs'
+        return b.meta.category ? '/' +  b.meta.category : '/blogs'
     }
-    return '/blogs/' + (b.meta?.slug || b.name)
+    return ( b.meta.category ? '/' +  b.meta.category + '/' : '/blogs/') + (b.meta?.slug || b.name)
 }
 
 export function dateFormat(date, fmt,) {

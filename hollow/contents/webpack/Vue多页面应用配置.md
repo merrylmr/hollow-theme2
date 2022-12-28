@@ -4,6 +4,7 @@ slug: Vue多页面应用配置
 date: 2020-09-30
 tags: [webpack,vue]
 desc: Vue多页面应用配置
+category: webpack
 ---
 最近由于工作驱动，项目包含pc端及mobile端，pc端和mobile端核心功能一致，最大的不同是UI,为了减少维护的成本，决定使用Vue的多页面开发。
 

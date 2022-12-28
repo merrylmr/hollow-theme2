@@ -1,12 +1,12 @@
 import Link from "../component/Link";
-import SearchBtn from "../component/searchBtn";
+import SearchBtn from "../component/SearchBtn";
 import {defaultMenus} from "../initial_data";
 
 
 export function NavComp(props) {
     const menu = defaultMenus
     return <div
-        className={`max-w-screen-xl w-4/5  mx-auto  flex items-center justify-between  h-16 header ${props.className}`}>
+        className={`max-w-screen-lg w-4/5  mx-auto  flex items-center justify-between  h-16 header ${props.className}`}>
         <div className={'flex items-center'}>
             <Link
                 href="/"
@@ -16,8 +16,8 @@ export function NavComp(props) {
             <div className={'flex items-center'}>
                 {
                     menu.map(item => {
-                            if (item.children) {
-                                return <div className="dropdown p-2">
+                        if (item.children) {
+                            return <div className="dropdown p-2">
                                <span tabIndex={0} className="flex items-center">
                                    <Link rel="stylesheet" href={item.href}> {item.name}</Link>
                                    <svg
@@ -93,7 +93,8 @@ export default function Header(props: { name: string, active: string }) {
             </svg>
         </div>
         <div className='person-3d'>
-            <img src="https://f.cdn-static.cn/12518_16720368769193.png" alt=""/>
+            <img
+                 src="https://f.cdn-static.cn/12518_16720368769193.png" alt=""/>
         </div>
 
     </div>

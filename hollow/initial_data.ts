@@ -124,23 +124,35 @@ export const defaultProjectList: {
 interface MenuItem {
     name: string;
     href: string;
+    path?: string;
     children?: MenuItem[]
 }
 
 export const defaultMenus: MenuItem[] = [
     {
         name: 'Posts',
-        href: '/web-front/',
+        href: '/blog/',
         children: [
             {
                 name: 'Css',
-                href: '/web-front/css/',
+                href: '/blog/css/',
+                path:'contents/css'
             },
             {
                 name: 'Animation',
-                href: '/web-front/animation/'
+                href: '/blog/animation/',
+                path:'contents/animate'
             },
-
+            {
+                name: 'Vue',
+                href: '/blog/vue/',
+                path:'contents/vue'
+            },
+            {
+                name: 'Webpack',
+                href: '/blog/webpack/',
+                path:'contents/webpack'
+            },
         ],
     },
     {

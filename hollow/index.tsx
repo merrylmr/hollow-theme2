@@ -34,7 +34,6 @@ contents.forEach(i => {
 // @ts-ignore
 tags = Array.from(new Set(tags));
 
-console.log('...defaultMenus[0].children', JSON.stringify(defaultMenus[0].children))
 // noinspection TypeScriptValidateTypes
 export default {
     pages: [
@@ -49,14 +48,18 @@ export default {
                 </Index>
             },
         },
+        // 所有文章
         ...contents.map(b => {
+            console.log('b1111:', JSON.stringify(b))
             return {
                 path: articleRoute(b),
                 component: () => {
                     let content = b.getContent()
                     // 不能这样写，因为在 golang 中没有对应的 content 字段，不能赋值成功
                     // b.content = content
-                    return <Index2 {...global} activeHeader="Blog">
+                    return <Index2 {...global}
+                                   title={b.name}
+                                   activeHeader="Blog">
                         <BlogDetail {...b} content={content}></BlogDetail>
                     </Index2>
                 }
@@ -133,11 +136,19 @@ export default {
                 </Index2>
             }
         },
+
         {
-            path: '/web-front',
+            path: 'blog',
             component: () => {
-                return <Index2 {...global}>
-                    <List></List>
+                return <Index2
+                    {...global}
+                    className="bg-subtle-background"
+                    title={'Merry的博客'}>
+                    <List
+
+                        tree={true}
+                        path={'contents'}
+                    />
                 </Index2>
             },
         },
@@ -148,7 +159,7 @@ export default {
                 >
                     <List
                         title={page.name}
-                        path={page.href}
+                        path={page.path}
                     ></List>
                 </Index2>
             }

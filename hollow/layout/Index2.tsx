@@ -3,6 +3,7 @@ import Footer, {Link} from "../particle/Footer";
 
 
 interface Props {
+    className?: string;
     icon?: String;
     cover?: String;
     title: string
@@ -65,10 +66,10 @@ export default function Index(props: Props) {
     </head>
     <body className="
     text-black
-     bg-gray-50
+     bg-subtle-background
     min-h-screen language-plain flex flex-col">
     <NavComp name={props.logo} active={props.activeHeader}
-    className="z-level">
+             className={`z-level ${props.className || ''}`}>
     </NavComp>
 
     {

@@ -2,8 +2,8 @@ import BlogBig from "../component/BlogBig";
 import Container from "../component/Container";
 
 import hollow, {getContents} from "@bysir/hollow"
-import {articleRoute, sortBlog} from "../util";
-import {defaultContents, defaultProjectList, defaultNews, defaultConfig} from "../initial_data";
+import {articleRoute, sortBlog, sortTag} from "../util";
+import {defaultContents, defaultProjectList,  defaultConfig} from "../initial_data";
 import Link from "../component/Link";
 
 let contents = getContents('contents',
@@ -11,6 +11,7 @@ let contents = getContents('contents',
         sort: sortBlog,
         page: 1,
         size: 20,
+        tree: false
     }
 ).list
 
@@ -31,7 +32,9 @@ contents.forEach(i => {
         tags = tags.concat(items)
     }
 })
-tags = Array.from(new Set(tags))
+
+tags = sortTag(tags).slice(0, 10)
+
 
 export default function Home() {
     return <section className={'pt-16'}>
@@ -55,7 +58,7 @@ export default function Home() {
                                     {item.meta.desc}
                                 </div>
                                 <div className={'text-base font-bold flex items-center'}>
-                                    更多
+                                    Read more
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          strokeWidth={1.5} stroke="currentColor"
                                          className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100">
@@ -80,9 +83,10 @@ export default function Home() {
                     <div className="flex flex-wrap space-x-3  mt-8 -mb-3">
                         {
                             tags.map(i => (
-                                <Link href={"/tags" + '/' + i} className={"tag mb-3 relative inline-block px-3 py-1  text-sm"}>
+                                <Link href={"/tags" + '/' + i[0]}
+                                      className={"tag mb-3 relative inline-block px-3 py-1  text-sm"}>
                                     <div className="absolute -z-1 tag-bg opacity-30 transform  duration-200"></div>
-                                    {i}
+                                    {i[0]}
                                 </Link>
                             ))
                         }

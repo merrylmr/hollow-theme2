@@ -69,13 +69,14 @@ export default function Index(props: Props) {
     min-h-screen language-plain">
     <div className="bg-white">
         <Header name={props.logo} active={props.activeHeader}></Header>
-        <div className='max-w-screen-xl mx-auto'>
+        <div className='max-w-screen-lg mx-auto'>
             {
                 props.children
             }
         </div>
         <Footer
-            name={props.logo} stack={props.stack}
+            name={props.logo}
+            stack={props.stack}
             footer_links={props.footer_links}>
         </Footer>
     </div>
