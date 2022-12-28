@@ -67,6 +67,11 @@ export function NavComp(props) {
     </div>
 }
 
+const bgUrl = {
+    light: "https://f.cdn-static.cn/12518_16722216044484.html",
+    dark: "https://f.cdn-static.cn/12518_16722214476203.html"
+}
+
 export default function Header(props: { name: string, active: string }) {
     const menus = [
         {href: '/', name: 'Home'},
@@ -97,7 +102,7 @@ export default function Header(props: { name: string, active: string }) {
                 src="https://f.cdn-static.cn/12518_16720368769193.png" alt=""/>
         </div>
         <div className="absolute frame-bg bottom-0 w-full">
-            <iframe src="https://f.cdn-static.cn/12518_16722197817433.html" frameborder="0"
+            <iframe src={bgUrl.light} frameborder="0"
                     width="100%" height="500px"></iframe>
         </div>
 

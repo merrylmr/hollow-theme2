@@ -47,7 +47,7 @@ export default function Index(props: Props) {
     console.log('props：',props)
     let routerBase = params?.base || ''
 
-    return <html lang="zh">
+    return <html lang="zh" data-theme="light">
     <head>
         <meta charSet="UTF-8"/>
         <meta name="viewport"
