@@ -275,7 +275,7 @@ html {
 
 @media (min-width: 769px) {
     .home-header {
-        height: 400px;
+        height: 500px;
     }
 }
 
@@ -324,7 +324,7 @@ html {
     position: absolute;
     z-index: 5;
     left: 70%;
-    top: 180px;
+    bottom: 0;
 }
 
 .person-3d img {
@@ -392,4 +392,9 @@ html {
     100% {
         opacity: 1;
     }
+}
+
+
+.frame-bg {
+    z-index: 1;
 }

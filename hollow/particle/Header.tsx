@@ -94,7 +94,11 @@ export default function Header(props: { name: string, active: string }) {
         </div>
         <div className='person-3d'>
             <img
-                 src="https://f.cdn-static.cn/12518_16720368769193.png" alt=""/>
+                src="https://f.cdn-static.cn/12518_16720368769193.png" alt=""/>
+        </div>
+        <div className="absolute frame-bg bottom-0 w-full">
+            <iframe src="https://f.cdn-static.cn/12518_16722197817433.html" frameborder="0"
+                    width="100%" height="500px"></iframe>
         </div>
 
     </div>
