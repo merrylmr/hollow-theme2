@@ -58,16 +58,16 @@ export default function Index(props: Props) {
         <link href={routerBase + '/prism/prism.css'}
               rel="stylesheet"/>
         {
-            // params?.fonts?.map((i => {
-            //     return <FontFamilyStyle {...i}></FontFamilyStyle>
-            // }))
+            params?.fonts?.map((i => {
+                return <FontFamilyStyle {...i}></FontFamilyStyle>
+            }))
         }
     </head>
     <body className="
     bg-gray-50
     text-black
     min-h-screen language-plain">
-    <div className="bg-white">
+    <div className="bg-base-100">
         <Header name={props.logo} active={props.activeHeader}></Header>
         <div className='max-w-screen-lg mx-auto'>
             {
@@ -86,7 +86,7 @@ export default function Index(props: Props) {
 
     <script src={routerBase + '/prism/prism.js'}></script>
     <script src={routerBase + '/app/index.js'}></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.1/index.js"></script>
     </body>
     </html>
 }

@@ -315,7 +315,6 @@ html {
 }
 
 .wave path {
-    fill: var(--color-background);
     transition: fill 350ms ease 0s;
 }
 
