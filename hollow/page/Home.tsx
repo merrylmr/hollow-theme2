@@ -52,7 +52,7 @@ export default function Home() {
                         contents.map(item => {
                             let link = articleRoute(item)
                             return <Link className="blog-item py-2  block group"
-                                      href={link} target="_blank">
+                                      href={link}>
                                 <h3 className={'text-xl font-bold group-hover:text-primary'}>  {item.name}</h3>
                                 <div className={'my-4 text-base line-clamp-3  leading-7'}>
                                     {item.meta.desc}
@@ -99,7 +99,7 @@ export default function Home() {
                             SIDE PROJECT
                         </h3>
                     </div>
-                    <div className="mt-8">
+                    <div className="-ml-8 mt-8">
                         {
                             projectList.map(item =>
                                 <a href={item.url} target='_blank'

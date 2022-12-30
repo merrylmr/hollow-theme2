@@ -44,7 +44,6 @@ function FontFamilyStyle({link, family, selector}) {
 
 
 export default function Index(props: Props) {
-    console.log('props：',props)
     let routerBase = params?.base || ''
 
     return <html lang="zh" data-theme="light">
@@ -62,12 +61,14 @@ export default function Index(props: Props) {
                 return <FontFamilyStyle {...i}></FontFamilyStyle>
             }))
         }
+        <script src={routerBase + '/app/theme.js'}></script>
+
     </head>
     <body className="
     bg-gray-50
-    text-black
+    text-base-content
     min-h-screen language-plain">
-    <div className="bg-base-100">
+    <div className="bg-color">
         <Header name={props.logo} active={props.activeHeader}></Header>
         <div className='max-w-screen-lg mx-auto'>
             {
@@ -86,7 +87,9 @@ export default function Index(props: Props) {
 
     <script src={routerBase + '/prism/prism.js'}></script>
     <script src={routerBase + '/app/index.js'}></script>
-    <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.1/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MotionPathPlugin.min.js"></script>
+    <script src={routerBase + '/app/bg3d.js'}></script>
     </body>
     </html>
 }

@@ -265,6 +265,17 @@ html {
     --color-decorative: #63bce9;
     --color-muted: #dfebf6;
     --color-subtle-background: #eff1f5;
+    --color-subtle-floating: #ffffff;
+}
+
+[data-theme="dark"] {
+    --color-homepage-light: #b3e5ff00;
+    --color-homepage-dark: #b3e5ff1a;
+    --color-background: #0e141b;
+    --color-decorative: #66aacc;
+    --color-muted: #182635;
+    --color-subtle-background: #0e141b;
+    --color-subtle-floating: #1e262f;
 }
 
 .home-header {
@@ -315,6 +326,7 @@ html {
 }
 
 .wave path {
+    fill: var(--color-background);
     transition: fill 350ms ease 0s;
 }
 
@@ -396,4 +408,22 @@ html {
 
 .frame-bg {
     z-index: 1;
+}
+
+
+.main1 {
+    background: linear-gradient(0deg, var(--color-homepage-dark), var(--color-homepage-light));
+    width: 100%;
+    height: 500px;
+}
+
+
+.card-bg {
+    background-color: var(--color-subtle-floating);
+}
+
+
+.bg-color {
+    background-color: var(--color-background);
+    transition: background 350ms ease 0s;
 }

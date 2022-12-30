@@ -17,7 +17,7 @@ function ListOne(props) {
                     let link = articleRoute(item)
                     return <Link
                         href={link}
-                        className="card group  bg-white block">
+                        className="card group  card-bg block">
                         <div className="card-body">
                             <h2 className="card-title group-hover:text-primary">{item.name}</h2>
                             <div className="mt-4">{item.meta.desc}</div>

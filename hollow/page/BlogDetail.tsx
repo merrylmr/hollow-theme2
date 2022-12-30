@@ -16,7 +16,7 @@ export default function BlogDetail(props: Props) {
         <div className="bg-muted sticky top-0 h-16 z-10"></div>
         <div className="pt-12 pb-12 bg-muted">
             <div className="max-w-screen-lg mx-auto w-4/5">
-                <div className="text-sm breadcrumbs text-gray-500">
+                <div className="text-sm breadcrumbs opacity-80">
                     <ul>
                         <li><Link href={'/'}>Home</Link></li>
                         <li><Link href={'/blog/'}>Blog</Link></li>
@@ -30,8 +30,8 @@ export default function BlogDetail(props: Props) {
                 <h1 className="text-4xl pt-2"> {name} </h1>
             </div>
         </div>
-        <div className="bg-white sticky top-0 h-16 z-10"></div>
-        <div className="flex justify-center	bg-white">
+        <div className="bg-color sticky top-0 h-16 z-10"></div>
+        <div className="flex justify-center	bg-color">
             <div className="
             prose dark:prose-invert
             prose-img:rounded-lg

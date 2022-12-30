@@ -48,7 +48,7 @@ export default function Index(props: Props) {
     let routerBase = params?.base || ''
 
 
-    return <html lang="zh">
+    return <html lang="zh" data-theme="light">
     <head>
         <meta charSet="UTF-8"/>
         <meta name="viewport"
@@ -59,14 +59,15 @@ export default function Index(props: Props) {
         <link href={routerBase + '/prism/prism.css'}
               rel="stylesheet"/>
         {
-            // params?.fonts?.map((i => {
-            //     return <FontFamilyStyle {...i}></FontFamilyStyle>
-            // }))
+            params?.fonts?.map((i => {
+                return <FontFamilyStyle {...i}></FontFamilyStyle>
+            }))
         }
+        <script src={routerBase + '/app/theme.js'}></script>
     </head>
     <body className="
-    text-black
-     bg-subtle-background
+    text-base-content
+  bg-subtle-background
     min-h-screen language-plain flex flex-col">
     <NavComp name={props.logo} active={props.activeHeader}
              className={`z-level ${props.className || ''}`}>
