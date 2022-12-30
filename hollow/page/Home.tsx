@@ -42,7 +42,7 @@ export default function Home() {
         <div className='grid grid-cols-3 gap-10'>
             <div className={'col-span-2'}>
                 <div className={' flex items-center'}>
-                    <h3 className={'text-base  text-pink-500 letterSpacing-wide'}>
+                    <h3 className={'text-base  text-pink-500  font-medium tracking-wider'}>
                         RECENTLY PUBLISHED
                     </h3>
                 </div>
@@ -55,9 +55,9 @@ export default function Home() {
                                       href={link}>
                                 <h3 className={'text-xl font-bold group-hover:text-primary'}>  {item.name}</h3>
                                 <div className={'my-4 text-base line-clamp-3  leading-7'}>
-                                    {item.meta.desc}
+                                    {item.getContent({pure: true}).substr(0, 150)+'......'}
                                 </div>
-                                <div className={'text-base font-bold flex items-center'}>
+                                <div className={'text-base font-medium flex items-center'}>
                                     Read more
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          strokeWidth={1.5} stroke="currentColor"
@@ -77,7 +77,7 @@ export default function Home() {
 
             <div>
                 <div>
-                    <h3 className={'text-base  text-pink-500 letterSpacing-wide'}>
+                    <h3 className={'text-base  text-pink-500 font-medium tracking-wider'}>
                         TOP CATEGORIES
                     </h3>
                     <div className="flex flex-wrap space-x-3  mt-8 -mb-3">
@@ -95,7 +95,7 @@ export default function Home() {
 
                 <div className="mt-10 sticky top-4">
                     <div className={' flex items-center'}>
-                        <h3 className={'text-base  text-pink-500 letterSpacing-wide'}>
+                        <h3 className={'text-base  text-pink-500 font-medium tracking-wider'}>
                             SIDE PROJECT
                         </h3>
                     </div>

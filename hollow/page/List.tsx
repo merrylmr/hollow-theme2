@@ -20,7 +20,9 @@ function ListOne(props) {
                         className="card group  card-bg block">
                         <div className="card-body">
                             <h2 className="card-title group-hover:text-primary">{item.name}</h2>
-                            <div className="mt-4">{item.meta.desc}</div>
+                            <div className="mt-4">
+                                {item.getContent({pure: true}).substr(0, 150)+'......'}
+                            </div>
                             <div className={'text-base font-bold flex items-center mt-4'}>
                                 Read more
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

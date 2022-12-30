@@ -50,7 +50,6 @@ export default {
         },
         // 所有文章
         ...contents.map(b => {
-            console.log('b1111:', JSON.stringify(b))
             return {
                 path: articleRoute(b),
                 component: () => {
