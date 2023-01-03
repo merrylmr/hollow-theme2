@@ -1,9 +1,15 @@
 const htmlDom = document.documentElement
-const theme = sessionStorage.getItem('theme');
+let theme = sessionStorage.getItem('theme');
 if (!theme) {
-    sessionStorage.setItem('theme', 'light')
+
+    const themeMedia = window.matchMedia("(prefers-color-scheme: light)")
+    const sysTheme = themeMedia.matches ? 'light' : 'dark'
+
+    theme = sysTheme
 }
 
+
+// 如果存在
 const fn = (mode) => {
     const bgUrl = {
         light: "https://f.cdn-static.cn/12518_16722216044484.html",

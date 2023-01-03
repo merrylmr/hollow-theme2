@@ -8,7 +8,7 @@ function ListOne(props) {
     return <div className="pt-32 max-w-screen-lg mx-auto w-4/5">
         <div className="flex items-center justify-between">
             <h1 className="text-4xl font-bold">{props?.title || 'Posts'}</h1>
-            <span>{props.contents.length} Articles</span>
+            <span>{props.contents?.length} Articles</span>
         </div>
 
         <div className="grid grid-cols-2 gap-10 mt-4">

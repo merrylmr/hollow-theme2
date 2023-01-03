@@ -5,6 +5,12 @@ const htmlDom = document.documentElement
 
 export default function ThemeBtn() {
     const inputRef = useRef<HTMLInputElement>()
+
+    function getSysTheme() {
+        const themeMedia = window.matchMedia("(prefers-color-scheme: light)")
+        return themeMedia.matches ? 'light' : 'dark'
+    }
+
     function toggleTheme() {
         let theme = ''
         const curTheme = sessionStorage.getItem('theme');
@@ -18,7 +24,8 @@ export default function ThemeBtn() {
     }
 
     function init() {
-        const theme = sessionStorage.getItem('theme');
+        const theme = sessionStorage.getItem('theme') || getSysTheme();
+
         if (theme === 'dark') {
             inputRef.current.checked = true
         }
