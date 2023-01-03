@@ -37,10 +37,10 @@ tags = sortTag(tags).slice(0, 10)
 
 
 export default function Home() {
-    return <section className={'pt-16'}>
+    return <section className={'pt-16 px-4'}>
 
-        <div className='grid grid-cols-3 gap-10'>
-            <div className={'col-span-2'}>
+        <div className='grid grid-cols-1 sm:grid-cols-3 gap-10'>
+            <div className={'sm:col-span-2'}>
                 <div className={' flex items-center'}>
                     <h3 className={'text-base  text-pink-500  font-medium tracking-wider'}>
                         RECENTLY PUBLISHED
@@ -75,7 +75,7 @@ export default function Home() {
 
             </div>
 
-            <div>
+            <div className="">
                 <div>
                     <h3 className={'text-base  text-pink-500 font-medium tracking-wider'}>
                         TOP CATEGORIES
@@ -99,7 +99,7 @@ export default function Home() {
                             SIDE PROJECT
                         </h3>
                     </div>
-                    <div className="-ml-8 mt-8">
+                    <div className="sm:-ml-8 mt-8">
                         {
                             projectList.map(item =>
                                 <a href={item.url} target='_blank'

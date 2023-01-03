@@ -11,7 +11,7 @@ function ListOne(props) {
             <span>{props.contents?.length} Articles</span>
         </div>
 
-        <div className="grid grid-cols-2 gap-10 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-4">
             {
                 props.contents.map(item => {
                     let link = articleRoute(item)

@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom/client';
 import Search from "./search";
 import Gallery from "./gallery";
 import ThemeBtn from "./themeBtn"
+import MobileNav from "./MobileNav";
 
 window.addEventListener("load", function () {
     const searchDom = document.getElementById('react-dom-search')
@@ -21,5 +22,11 @@ window.addEventListener("load", function () {
         console.log('themeDom:', themeDom)
         const root = ReactDOM.createRoot(themeDom);
         root.render(<ThemeBtn></ThemeBtn>)
+    }
+
+    const mobileNav = document.getElementById('mobile-nav');
+    if (mobileNav) {
+        const root = ReactDOM.createRoot(mobileNav);
+        root.render(<MobileNav></MobileNav>)
     }
 })
