@@ -52,7 +52,7 @@ export default function List(props) {
     ).list
 
 
-    if (contents.length == 0) {
+    if (contents?.length == 0) {
         contents = defaultContents
     }
 
@@ -60,7 +60,7 @@ export default function List(props) {
         return <>
             {
                 contents.map(dir => {
-                    if (dir.children.length > 0) {
+                    if (dir.children?.length > 0) {
                         return <ListOne
                             title={dir.name}
                             path={props.path}
