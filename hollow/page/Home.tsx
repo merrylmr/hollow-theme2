@@ -15,7 +15,7 @@ let contents = getContents('contents',
     }
 ).list
 
-console.log('contents:',JSON.stringify(contents))
+// console.log('contents:',JSON.stringify(contents))
 
 if (contents.length == 0) {
     contents = defaultContents
@@ -39,7 +39,7 @@ tags = sortTag(tags).slice(0, 10)
 export default function Home() {
     return <section className={'pt-16 px-4'}>
 
-        <div className='grid grid-cols-1 sm:grid-cols-3 gap-10'>
+        <div className='grid grid-cols-1 sm:grid-cols-3 gap-24'>
             <div className={'sm:col-span-2'}>
                 <div className={' flex items-center'}>
                     <h3 className={'text-base  text-pink-500  font-medium tracking-wider'}>
@@ -80,11 +80,11 @@ export default function Home() {
                     <h3 className={'text-base  text-pink-500 font-medium tracking-wider'}>
                         TOP CATEGORIES
                     </h3>
-                    <div className="flex flex-wrap space-x-3  mt-8 -mb-3">
+                    <div className="flex flex-wrap  mt-8 -mb-3">
                         {
                             tags.map(i => (
                                 <Link href={"/tags" + '/' + i[0]}
-                                      className={"tag mb-3 relative inline-block px-3 py-1  text-sm"}>
+                                      className={"tag mb-3 relative inline-block px-3 py-1  text-sm mr-3"}>
                                     <div className="absolute -z-1 tag-bg opacity-30 transform  duration-200"></div>
                                     {i[0]}
                                 </Link>

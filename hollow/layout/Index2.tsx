@@ -21,27 +21,7 @@ import {defaultConfig} from "../initial_data";
 
 let params = hollow.getConfig() || defaultConfig;
 
-function FontFamilyStyle({link, family, selector}) {
-    if (!family) {
-        return null
-    }
-    switch (family) {
-        case 'LXGW WenKai':
-            link = link || 'https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css'
-            break
-        case 'Noto Serif SC':
-            link = link || 'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;900&amp;display=swap'
-            break
-    }
-    return <>
-        {link ? <link rel="stylesheet" href={link}/> : null}
-        <style dangerouslySetInnerHTML={{
-            __html: `${selector} {
-            font-family: ${family};
-        }`
-        }}></style>
-    </>
-}
+
 
 
 export default function Index(props: Props) {
@@ -58,11 +38,20 @@ export default function Index(props: Props) {
               rel="stylesheet"/>
         <link href={routerBase + '/prism/prism.css'}
               rel="stylesheet"/>
-        {
-            params?.fonts?.map((i => {
-                return <FontFamilyStyle {...i}></FontFamilyStyle>
-            }))
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&family=Poppins&display=swap"
+              rel="stylesheet"/>
+
+        <style dangerouslySetInnerHTML={{
+            __html: `.font-Poppins {
+          font-family: 'Poppins', sans-serif;
         }
+         body {
+           font-family: 'Noto Serif SC', serif;
+        }
+        `
+        }}></style>
         <script src={routerBase + '/app/theme.js'}></script>
     </head>
     <body className="

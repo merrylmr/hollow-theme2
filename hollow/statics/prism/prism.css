@@ -266,6 +266,7 @@ html {
     --color-muted: #dfebf6;
     --color-subtle-background: #eff1f5;
     --color-subtle-floating: #ffffff;
+    --color-blurred-background: #ffffffd9;
 }
 
 [data-theme="dark"] {
@@ -276,6 +277,7 @@ html {
     --color-muted: #182635;
     --color-subtle-background: #0e141b;
     --color-subtle-floating: #1e262f;
+    --color-blurred-background: #0e141bd9;
 }
 
 .home-header {
@@ -343,7 +345,7 @@ html {
     display: block;
     top: 0px;
     left: 0px;
-    height: 232px;
+    height: 280px;
     pointer-events: none;
     animation: fade-in 0.6s 0.2s;
     animation-fill-mode: forwards;
@@ -378,6 +380,9 @@ html {
     background-color: var(--color-subtle-background);
 }
 
+.bg-blur {
+    background-color: var(--color-blurred-background);
+}
 
 @keyframes text-focus-in {
     0% {
@@ -427,3 +432,47 @@ html {
     background-color: var(--color-background);
     transition: background 350ms ease 0s;
 }
+
+
+/* 滚动条整体 */
+::-webkit-scrollbar {
+    height: 10px;
+    width: 12px;
+}
+
+/* 两个滚动条交接处 -- x轴和y轴 */
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    background: #535353;
+    border: 2px solid #ededed;
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    /*border-radius: 10px;*/
+    background: #ededed;
+
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid #1f2536;
+    background: #abbfd9;
+}
+
+/* 滚动条轨道 */
+[data-theme='dark'] ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #1f2536;
+}
+
+

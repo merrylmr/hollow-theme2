@@ -12,10 +12,6 @@ module.exports = {
       ...colors,
       gray: colors.neutral,
     },
-    fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
-    },
   },
   variants: {},
   plugins: [

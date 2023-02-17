@@ -3,7 +3,8 @@ import {GalleryItem} from "./page/Gallery";
 
 export const defaultConfig = {
     logo: "Hollow Theme",
-    stack: "Hollow"
+    stack: "Hollow",
+
 }
 
 export const defaultContents: Content[] =
@@ -130,28 +131,28 @@ interface MenuItem {
 
 export const defaultMenus: MenuItem[] = [
     {
-        name: 'Posts',
+        name: '技术',
         href: '/blog/',
         children: [
             {
                 name: 'Css',
                 href: '/blog/css/',
-                path:'contents/css'
+                path:'contents/blog/css'
             },
             {
                 name: 'Animation',
                 href: '/blog/animation/',
-                path:'contents/animate'
+                path:'contents/blog/animate'
             },
             {
                 name: 'Vue',
                 href: '/blog/vue/',
-                path:'contents/vue'
+                path:'contents/blog/vue'
             },
             {
                 name: 'Webpack',
                 href: '/blog/webpack/',
-                path:'contents/webpack'
+                path:'contents/blog/webpack'
             },
         ],
     },

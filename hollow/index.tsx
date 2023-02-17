@@ -146,7 +146,7 @@ export default {
                     <List
 
                         tree={true}
-                        path={'contents'}
+                        path={'contents/blog/'}
                     />
                 </Index2>
             },

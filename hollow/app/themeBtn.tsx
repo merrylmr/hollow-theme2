@@ -14,7 +14,7 @@ export default function ThemeBtn() {
     function toggleTheme() {
         let theme = ''
         const curTheme = sessionStorage.getItem('theme');
-        if (curTheme === '' || curTheme === 'light') {
+        if (!curTheme || curTheme === 'light') {
             theme = 'dark'
         } else {
             theme = 'light'
