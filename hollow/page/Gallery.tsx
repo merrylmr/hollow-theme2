@@ -1,14 +1,6 @@
-import Container from "../component/Container";
 
-interface FriendLink {
-    url: string
-    name: string
-    info?: string
-}
 
-interface Props {
-    links: FriendLink[]
-}
+
 
 export interface GalleryItem {
     text: string

@@ -131,7 +131,7 @@ interface MenuItem {
 
 export const defaultMenus: MenuItem[] = [
     {
-        name: '技术',
+        name: '分享',
         href: '/blog/',
         children: [
             {

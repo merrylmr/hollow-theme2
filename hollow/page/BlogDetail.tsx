@@ -1,13 +1,8 @@
 import {dateFormat} from "../util";
 import Link from "../component/Link";
+import {Content} from "@bysir/hollow";
 
-interface Props {
-    name: string,
-    content: string
-    meta?: any
-}
-
-export default function BlogDetail(props: Props) {
+export default function BlogDetail(props: Content) {
     let tags = props.meta?.tags
     let name = props.meta?.title || props.name
 
@@ -20,7 +15,7 @@ export default function BlogDetail(props: Props) {
                     <ul>
                         <li><Link href={'/'}>Home</Link></li>
                         <li><Link href={'/blog/'}>Blog</Link></li>
-                        <li> <Link href={`/blog/${props.meta.category}`}>
+                        <li><Link href={`/blog/${props.meta.category}`}>
                             {props.meta.category ? props.meta.category.substr(0, 1).toLocaleUpperCase() + props.meta.category.substr(1) : ''
                             }
                         </Link>

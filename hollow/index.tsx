@@ -10,6 +10,7 @@ import MarkDown from "./page/Md";
 import {articleRoute} from "./util";
 import {defaultConfig, defaultContents, defaultPageConfig, defaultMenus} from "./initial_data";
 import Gallery from "./page/Gallery";
+import Book from "./page/Book";
 
 let contents = getContents('contents').list;
 if (contents.length == 0) {
@@ -121,7 +122,7 @@ export default {
                 return <Index2 {...global}
                               {...pageConfig.book}
                               activeHeader="book">
-                    <Gallery></Gallery>
+                    <Book></Book>
                 </Index2>
             }
         },
