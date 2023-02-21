@@ -58,7 +58,7 @@ export function NavComp(props) {
             </div>
         </div>
         </div>
-        <div id="mobile-nav" className="z-20 relative">
+        <div id="mobile-nav" className="z-20 sticky top-0">
             <div className="navbar  flex sm:hidden">
                 <div className="flex-1">
                     <a className="btn btn-ghost normal-case text-xl text-primary font-Poppins">Merry</a>

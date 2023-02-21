@@ -6,7 +6,7 @@ tags: [css]
 desc: fixed定位：一般会以窗口定位，当某一父级使用了transform:xxx属性时，则fixed定位就相对于该父级
 category: css
 ---
-###  fixed+transform：
+##  fixed+transform
 fixed定位：一般会以窗口定位，当某一父级使用了transform:xxx属性时，则fixed定位就相对于该父级。
 ![image.png](https://upload-images.jianshu.io/upload_images/11899053-4003818216137731.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

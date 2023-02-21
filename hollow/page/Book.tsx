@@ -1,3 +1,6 @@
+import {getContents} from "@bysir/hollow";
+import {sortBlog, articleRoute} from "../util";
+
 interface BookItem {
     type: string;
     name: string;
@@ -33,9 +36,21 @@ const bookList: BookItem[] = [
         score: 5
     }
 ]
+let contents = getContents('contents/book',
+    {
+        sort: sortBlog,
+        page: 1,
+        size: 20,
+        tree: false
+    }
+).list
+
 export default function Book() {
+    console.log('contents:', JSON.stringify(contents))
+
     return <div className="container  w-4/5  mx-auto  mt-16 overflow-x-auto min-h-screen">
-        <table className="table table-compact w-full">
+        <table className="table table-compact w-full"
+               id="bookList">
             <thead>
             <tr className="border-b-2 border-gray-50">
                 <th></th>
@@ -49,29 +64,31 @@ export default function Book() {
             </thead>
             <tbody>
             {
-                bookList.map((item, index) => {
+                contents.map((item, index) => {
+                    let link = articleRoute(item)
                     return <tr>
                         <th>{index + 1}</th>
                         <td>
-                            <div className="badge badge-primary">{item.type}</div>
+                            <div className="badge badge-primary">{item.meta?.tags[0]}</div>
                         </td>
-                        <td>{item.name}</td>
-                        <td>{item.status}</td>
+                        <td data-link={link}> {item.name}</td>
+                        <td>{item.meta?.status}</td>
                         <td>
                             <div className="rating">
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"/>
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked/>
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"/>
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"/>
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"/>
                             </div>
                         </td>
-                        <td>{item.author}</td>
-                        <td>{item.summary}</td>
+                        <td>{item.meta?.author}</td>
+                        <td>{item.meta?.desc}</td>
                     </tr>
                 })
             }
             </tbody>
         </table>
+        <div id="detailPage" className="hidden"></div>
     </div>
 }
