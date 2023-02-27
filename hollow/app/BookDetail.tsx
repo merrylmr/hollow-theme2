@@ -8,7 +8,7 @@ export default function BookDetail() {
     useEffect(() => {
         const bookList = document.getElementById('bookList');
         bookList.addEventListener('click', (e) => {
-            const url = e.target?.getAttribute('data-link');
+            const url = e.target.closest("tr").getAttribute('data-link');
             if (url) {
                 setUrl(url)
                 setShow(true)
@@ -24,7 +24,9 @@ export default function BookDetail() {
                      ${show ? '' : 'hidden'}
                      `}
                 onClick={() => setShow(false)}>
-        <div className="inner w-1/2 h-screen fixed right-0 top-0 bg-white">
+        <div className="inner w-1/2 h-screen fixed right-0 top-0 bg-white
+
+">
             <iframe
                 frameBorder="0"
                 className="w-full h-full"
