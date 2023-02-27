@@ -1,41 +1,7 @@
 import {getContents} from "@bysir/hollow";
 import {sortBlog, articleRoute} from "../util";
 
-interface BookItem {
-    type: string;
-    name: string;
-    status: string;
-    author: string;
-    summary: string;
-    score: number
-}
 
-const bookList: BookItem[] = [
-    {
-        type: '计算机',
-        name: '黑客与画家',
-        author: 'xx',
-        status: '已读',
-        summary: '',
-        score: 5
-    },
-    {
-        type: '计算机',
-        name: '黑客与画家',
-        author: 'xx',
-        status: '已读',
-        summary: '',
-        score: 5
-    },
-    {
-        type: '计算机',
-        name: '黑客与画家',
-        author: 'xx',
-        status: '已读',
-        summary: '',
-        score: 5
-    }
-]
 let contents = getContents('contents/book',
     {
         sort: sortBlog,
@@ -66,6 +32,11 @@ export default function Book() {
             {
                 contents.map((item, index) => {
                     let link = articleRoute(item)
+                    let score = parseInt(item.meta?.score) || 5
+                    const scoreArr = new Array(score);
+                    for (let i = 0; i < score; i++) {
+                        scoreArr.push(i)
+                    }
                     return <tr>
                         <th>{index + 1}</th>
                         <td>
@@ -75,11 +46,12 @@ export default function Book() {
                         <td>{item.meta?.status}</td>
                         <td>
                             <div className="rating">
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"/>
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked/>
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"/>
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"/>
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"/>
+                                {
+                                    scoreArr.map(() => {
+                                        return <input type="radio" name="rating-2"
+                                                      className="mask mask-star-2 bg-orange-400"/>
+                                    })
+                                }
                             </div>
                         </td>
                         <td>{item.meta?.author}</td>
@@ -89,15 +61,7 @@ export default function Book() {
             }
             </tbody>
         </table>
-        <div id="detailPage" className="hidden">
-
-            <div className="book-detail w-full h-screen absolute left-0 top-0 bg-gray-50">
-                <div className="inner w-1/2 h-screen absolute right-0 top-0 bg-base-100/5">
-                    <iframe id="detailFrame" frameBorder="0" className="w-full h-full"></iframe>
-                </div>
-            </div>
+        <div id="detailPage">
         </div>
-
-
     </div>
 }

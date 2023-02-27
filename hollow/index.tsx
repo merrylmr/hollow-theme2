@@ -1,5 +1,6 @@
 import Index from "./layout/Index"
 import Index2 from "./layout/Index2"
+import Index3 from "./layout/Index3"
 
 import Home from "./page/Home";
 import BlogDetail from "./page/BlogDetail";
@@ -11,11 +12,19 @@ import {articleRoute} from "./util";
 import {defaultConfig, defaultContents, defaultPageConfig, defaultMenus} from "./initial_data";
 import Gallery from "./page/Gallery";
 import Book from "./page/Book";
+import BookDetail from "./page/BookDetail";
+import {Component, ReactNode} from "react";
 
-let contents = getContents('contents').list;
+let contents = getContents('contents/blog').list;
 if (contents.length == 0) {
     contents = defaultContents
 }
+
+let books = getContents('contents/book').list;
+if (books.length == 0) {
+    books = defaultContents
+}
+
 let params = hollow.getConfig() || defaultConfig;
 
 let global = {
@@ -65,12 +74,26 @@ export default {
                 }
             }
         }),
+        ...books.map(b => {
+            return {
+                path: articleRoute(b),
+                component: () => {
+                    let content = b.getContent()
+                    return <Index3 {...global}
+                                   {...pageConfig.tag}
+
+                                   activeHeader="Tags">
+                        <BookDetail{...b} content={content}></BookDetail>
+                    </Index3>
+                }
+            }
+        }),
         {
             path: 'tags',
             component: () => {
                 return <Index2 {...global}
-                              {...pageConfig.tag}
-                              activeHeader="Tags">
+                               {...pageConfig.tag}
+                               activeHeader="Tags">
                     <TagPage></TagPage>
                 </Index2>
             }
